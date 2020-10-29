@@ -1,0 +1,31 @@
+{
+	"name": "db_tbl_deniro",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "db_aginic_training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "YEAR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SCORE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TITLE",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "test",
+			"table": "DENIRO"
+		}
+	}
+}
