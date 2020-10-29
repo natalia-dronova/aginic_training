@@ -40,14 +40,20 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "sa_deniro_csv",
-						"type": "DatasetReference"
+						"referenceName": "sa_csv",
+						"type": "DatasetReference",
+						"parameters": {
+							"file_name": "deniro.csv"
+						}
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "db_tbl_deniro",
-						"type": "DatasetReference"
+						"referenceName": "db_tbl",
+						"type": "DatasetReference",
+						"parameters": {
+							"table_name": "deniro"
+						}
 					}
 				]
 			}

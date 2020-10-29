@@ -1,9 +1,14 @@
 {
-	"name": "db_tbl_homes",
+	"name": "db_tbl",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "db_aginic_training",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
@@ -25,7 +30,10 @@
 		],
 		"typeProperties": {
 			"schema": "test",
-			"table": "HOMES"
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
 		}
 	}
 }
