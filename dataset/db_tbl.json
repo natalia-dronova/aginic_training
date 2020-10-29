@@ -1,0 +1,39 @@
+{
+	"name": "db_tbl",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "db_aginic_training",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "YEAR",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "SCORE",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "TITLE",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "test",
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
+		}
+	}
+}
