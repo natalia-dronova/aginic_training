@@ -1,0 +1,36 @@
+{
+	"name": "sa_deniro_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "sa_aginic_training",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "deniro.csv",
+				"container": "sandbox"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": " \"Score\"",
+				"type": "String"
+			},
+			{
+				"name": " \"Title\"",
+				"type": "String"
+			}
+		]
+	}
+}
