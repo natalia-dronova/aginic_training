@@ -50,8 +50,29 @@
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": []
 			}
 		],
+		"parameters": {
+			"table_array": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"source_table_name": "deniro.csv",
+						"destination_table_name": "deniro"
+					},
+					{
+						"source_table_name": "homes.csv",
+						"destination_table_name": "homes"
+					}
+				]
+			}
+		},
 		"annotations": []
 	}
 }

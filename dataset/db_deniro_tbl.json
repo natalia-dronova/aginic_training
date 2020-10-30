@@ -5,6 +5,11 @@
 			"referenceName": "db_aginic_training",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"table_name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -25,7 +30,10 @@
 		],
 		"typeProperties": {
 			"schema": "test",
-			"table": "DENIRO"
+			"table": {
+				"value": "@dataset().table_name",
+				"type": "Expression"
+			}
 		}
 	}
 }
