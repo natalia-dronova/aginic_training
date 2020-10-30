@@ -1,0 +1,44 @@
+{
+	"name": "daily_6am",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "copy_deniro",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"table_array": [
+						{
+							"source_table_name": "deniro.csv",
+							"destination_table_name": "deniro"
+						},
+						{
+							"source_table_name": "homes.csv",
+							"destination_table_name": "homes"
+						}
+					]
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 11,
+				"startTime": "2020-10-30T05:29:00Z",
+				"timeZone": "UTC",
+				"schedule": {
+					"minutes": [
+						0
+					],
+					"hours": [
+						6
+					]
+				}
+			}
+		}
+	}
+}

@@ -3,56 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy deniro",
-				"type": "Copy",
-				"dependsOn": [],
-				"policy": {
-					"timeout": "7.00:00:00",
-					"retry": 0,
-					"retryIntervalInSeconds": 30,
-					"secureOutput": false,
-					"secureInput": false
-				},
-				"userProperties": [],
-				"typeProperties": {
-					"source": {
-						"type": "DelimitedTextSource",
-						"storeSettings": {
-							"type": "AzureBlobStorageReadSettings",
-							"recursive": true
-						},
-						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "AzureSqlSink"
-					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "sa_deniro_csv",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "db_deniro_tbl",
-						"type": "DatasetReference"
-					}
-				]
-			},
-			{
-				"name": "ForEach1",
+				"name": "For each table",
 				"type": "ForEach",
 				"dependsOn": [],
 				"userProperties": [],
@@ -63,7 +14,7 @@
 					},
 					"activities": [
 						{
-							"name": "Copy deniro_copy1",
+							"name": "Copy from blob to db",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -100,14 +51,26 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "sa_deniro_csv",
-									"type": "DatasetReference"
+									"referenceName": "sa_csv",
+									"type": "DatasetReference",
+									"parameters": {
+										"file_name": {
+											"value": "@item().source_table_name",
+											"type": "Expression"
+										}
+									}
 								}
 							],
 							"outputs": [
 								{
-									"referenceName": "db_deniro_tbl",
-									"type": "DatasetReference"
+									"referenceName": "db_tbl",
+									"type": "DatasetReference",
+									"parameters": {
+										"table_name": {
+											"value": "@item().destination_table_name",
+											"type": "Expression"
+										}
+									}
 								}
 							]
 						}
