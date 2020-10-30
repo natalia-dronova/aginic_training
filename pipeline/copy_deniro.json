@@ -3,7 +3,7 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Copy deniro from blob to db",
+				"name": "Copy deniro",
 				"type": "Copy",
 				"dependsOn": [],
 				"policy": {
@@ -46,12 +46,45 @@
 				],
 				"outputs": [
 					{
-						"referenceName": "db_tbl_deniro",
+						"referenceName": "db_deniro_tbl",
 						"type": "DatasetReference"
 					}
 				]
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "",
+						"type": "Expression"
+					}
+				}
 			}
 		],
+		"parameters": {
+			"source": {
+				"type": "string"
+			},
+			"destination": {
+				"type": "string"
+			},
+			"table_array": {
+				"type": "array",
+				"defaultValue": [
+					{
+						"source_table_name": "deniro.csv",
+						"destination_table_name": "deniro"
+					},
+					{
+						"source_table_name": "homes.csv",
+						"destination_table_name": "homes"
+					}
+				]
+			}
+		},
 		"annotations": []
 	}
 }
