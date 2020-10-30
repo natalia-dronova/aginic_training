@@ -1,5 +1,5 @@
 {
-	"name": "copy_deniro",
+	"name": "copy_deniro_copy1",
 	"properties": {
 		"activities": [
 			{
@@ -116,6 +116,12 @@
 			}
 		],
 		"parameters": {
+			"source": {
+				"type": "string"
+			},
+			"destination": {
+				"type": "string"
+			},
 			"table_array": {
 				"type": "array",
 				"defaultValue": [
